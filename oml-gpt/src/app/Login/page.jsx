@@ -1,9 +1,33 @@
 import React from 'react'
 
-const page = () => {
+const Login = () => {
   return (
-    <div>Login Page</div>
+    <div className="join join-vertical">
+      Login
+      <LoginBox />
+    </div>
+    
   )
 }
 
-export default page
+const LoginBox = () => {
+  return (
+    <div className="join join-vertical">
+      <Information />
+      <button className="btn btn-wide">Submit</button>
+    </div>
+  )
+}
+
+const Information = () => {
+  return (
+    <div className="join join-vertical">
+        <label for='username'>Username: </label>
+        <input type='text' id='username' name='username' className='information'/>
+        <label for='password'>Password: </label>
+        <input type='password' id='password' name='password' className='information'/>
+    </div>
+  )
+}
+
+export default Login
