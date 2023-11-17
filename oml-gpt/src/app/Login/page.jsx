@@ -1,19 +1,19 @@
 'use client'
 import { React, useState, useRef, useEffect } from 'react'
 
-const Login = () => {
+const page = () => {
 
   return (
     <section className="join join-vertical">
       Login Page
 
-      <LoginBox />
+      <Login />
     </section>
     
   )
 }
 
-const LoginBox = () => {
+const Login = () => {
   const errRef = useRef()
 
   const [user, setUser] = useState('')
@@ -35,12 +35,29 @@ const LoginBox = () => {
 
       <form className="join join-vertical" onSubmit={ handleSubmit }>
         <h1>Login</h1>
-        <Information 
-          user={ user }
-          setUser={ setUser }
-          pwd={ pwd }  
-          setPwd={ setPwd }
-        />
+        <div className="join join-vertical">
+          <label for='username'>Username: </label>
+          <input 
+            type='text' 
+            id='username' 
+            name='username' 
+            className='information'
+            autoComplete='off'
+            onChange={ (e) => setUser(e.target.value) }
+            value={ user }
+            required
+          />
+          <label for='password'>Password: </label>
+          <input 
+            type='password' 
+            id='password' 
+            name='password' 
+            className='information'
+            onChange={ (e) => setPwd(e.target.value) }
+            value={ pwd }
+            required
+          />
+        </div>
         <button className="btn btn-wide" type='submit'>Submit</button>
         <p>
           Need an Account?<br />
@@ -49,35 +66,6 @@ const LoginBox = () => {
           </span>
         </p>
       </form>
-    </div>
-  )
-}
-
-const Information = ({ user, setUser, pwd, setPwd, props }) => {
-
-  return (
-    <div className="join join-vertical">
-        <label for='username'>Username: </label>
-        <input 
-          type='text' 
-          id='username' 
-          name='username' 
-          className='information'
-          autoComplete='off'
-          onChange={ (e) => setUser(e.target.value) }
-          value={ user }
-          required
-        />
-        <label for='password'>Password: </label>
-        <input 
-          type='password' 
-          id='password' 
-          name='password' 
-          className='information'
-          onChange={ (e) => setPwd(e.target.value) }
-          value={ pwd }
-          required
-        />
     </div>
   )
 }
