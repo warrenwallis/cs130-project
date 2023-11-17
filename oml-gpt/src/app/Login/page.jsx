@@ -1,8 +1,8 @@
 'use client'
 import { React, useState, useRef, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-const page = () => {
-
+const Page = () => {
   return (
     <section className="join join-vertical">
       Login Page
@@ -16,6 +16,8 @@ const page = () => {
 const Login = () => {
   const errRef = useRef()
 
+  const { push } = useRouter()
+
   const [user, setUser] = useState('')
   const [pwd, setPwd] = useState('')
   const [errMsg, setErrMsg] = useState('')
@@ -27,6 +29,7 @@ const Login = () => {
     setUser('')
     setPwd('')
     setSuccess(true)
+    push('../Home')
   }
 
   return (
@@ -70,4 +73,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Page

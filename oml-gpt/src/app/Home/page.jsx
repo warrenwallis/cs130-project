@@ -1,9 +1,24 @@
-import React from 'react'
+const Page = () => {
 
-const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <div>Home</div>
+    
+      <Form />
+      
+
+    </>
+    
   )
 }
 
-export default Home
+const Form = () => {
+  return (
+    <form>
+      <input type="text" placeholder="Type here" className="input w-full max-w-xs" />
+      <button className="btn">Button</button>
+    </form>
+  )
+}
+
+export default Page

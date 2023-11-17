@@ -47,4 +47,5 @@ Other necessary commands to run:
 npm i -D daisyui@latest
 npm install firebase
 npm install -g firebase-tools
+npm update -g firebase-tools
 ```
