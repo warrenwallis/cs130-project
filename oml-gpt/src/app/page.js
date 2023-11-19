@@ -6,7 +6,8 @@ export default function Page() {
     <main>
       <h1>Starting Page</h1>
       <div>
-        *Insert About Information Here*
+        OML-GPT <br />
+        A ChatGPT plugin allowing you to use natural language to query databases and understand the data in a conversation manner
       </div>
       <Link href="/Login">Login</Link>
     </main>
