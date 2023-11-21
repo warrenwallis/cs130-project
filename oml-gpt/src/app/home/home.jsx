@@ -1,4 +1,4 @@
-const Page = () => {
+export default function Home() {
 
   return (
     <>
@@ -21,4 +21,3 @@ const Form = () => {
   )
 }
 
-export default Page
