@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import ButtonWithLink from './components/ButtonWithLink'
+import ButtonWithLink from '@/components/ButtonWithLink'
 
 export default function Landing() {
   return (

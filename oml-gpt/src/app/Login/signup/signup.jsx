@@ -1,18 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import ButtonWithLink from '@/components/ButtonWithLink'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { useRouter } from 'next/navigation'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '@/lib/firebase/firebase'
 
-export default function Login({ setLoggedUser }) {
+export default function SignUp({ setLoggedUser }) {
   return (
     <section className="join join-vertical">
-      <LoginBox />
+      <SignUpBox />
     </section>
   )
 }
 
-function LoginBox({ setLoggedUser }) {
+function SignUpBox({ setLoggedUser }) {
   const errRef = useRef()
 
   const { push } = useRouter()
@@ -24,7 +24,7 @@ function LoginBox({ setLoggedUser }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    signInWithEmailAndPassword(auth, user, pwd)
+    createUserWithEmailAndPassword(auth, user, pwd)
       .then((userCred) => {
         console.log(userCred)
       }).catch((error) => {
@@ -40,7 +40,7 @@ function LoginBox({ setLoggedUser }) {
       <p ref={ errRef } className={ errMsg ? 'errmsg' : 'offscreen' } aria-live='assertive'>{ errMsg }</p>
 
       <form className="join join-vertical" onSubmit={ handleSubmit }>
-        <h1>Login</h1>
+        <h1>Sign Up</h1>
         <div className="join join-vertical">
           <label htmlFor='username'>Username: </label>
           <input 
@@ -66,9 +66,8 @@ function LoginBox({ setLoggedUser }) {
         </div>
         <button className="btn btn-wide btn-accent" type='submit'>Submit</button>
         <p>
-          Need an Account?<br />
           <span className='line'>
-            <ButtonWithLink href='/login/signup'>Sign up</ButtonWithLink>
+            <ButtonWithLink href='/login'>Go Back</ButtonWithLink>
           </span>
         </p>
       </form>
