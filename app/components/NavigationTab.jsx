@@ -9,13 +9,15 @@ const NavigationTab = () => {
 				<Link href='/home'>
 					<p className='p-4 cursor-pointer hover:bg-sky-50 w-40 text-center'>Home</p>
 				</Link>
-				<Link href='support'>
+				<Link href='/support'>
 					<p className='p-4 cursor-pointer hover:bg-sky-50 w-40 text-center'>Support</p>
 				</Link>
 			</div>
-			<p onClick={signout} className='p-4 cursor-pointer hover:bg-sky-50 w-40 text-center'>
-				Log Out
-			</p>
+			<Link href='/'>
+				<p onClick={signout} className='p-4 cursor-pointer hover:bg-sky-50 w-40 text-center'>
+					Log Out
+				</p>
+			</Link>
 		</div>
 	);
 };

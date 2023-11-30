@@ -1,17 +1,34 @@
 'use client';
 
 import { converToSparQL } from '@/services/llm';
+import handleQuery from '@/services/main/handleQuery';
 import { Button, Input } from '@nextui-org/react';
 import { useState } from 'react';
 
-const InputForm = ({ messages, setMessages }) => {
+const InputForm = ({ user, messages, setMessages }) => {
 	const [message, setMessage] = useState('');
 
-	const handleSubmit = async (e) => {
-		setMessages([...messages, message]);
+	const handleSubmit = async () => {
+		// paste user's message to chat
+		setMessages([
+			...messages,
+			{
+				sender: user?.email,
+				message,
+			},
+		]);
+
+		// get oml copilot's response
+		const interpretedResult = await handleQuery(message);
+		setMessages([
+			...messages,
+			{
+				sender: 'OML Copilot',
+				message: interpretedResult.queryInterpretation,
+			},
+		]);
+
 		setMessage('');
-		const res = await converToSparQL(message);
-		console.log(res);
 	};
 
 	return (

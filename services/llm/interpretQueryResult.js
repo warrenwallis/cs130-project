@@ -2,14 +2,16 @@
 
 import OpenAI from 'openai';
 
-const converToSparQL = async (query) => {
+const interpretQueryResult = async (query, result) => {
 	const instructions = `
-Convert the following question into a SPARQL query that uses the OML vocabulary terms properly.
-This will be interacting with the Jena-Fuseki server. Only return this query. 
-Do not say anything else. Your response will be plugged in directly to the knowledge base.',
+Interpret the following result from the RDF that was queried with SPARKQL:
 
+Query:
 ${query}
 
+
+Result:
+${result}
 `;
 
 	try {
@@ -23,7 +25,7 @@ ${query}
 			messages: [
 				{
 					role: 'system',
-					content: 'Remember to only return the query itself.',
+					content: 'Return a detailed interpretation of the result from the RDF database..',
 				},
 				{
 					role: 'user',
@@ -34,8 +36,8 @@ ${query}
 		const responseText = res.choices[0].message.content;
 		return responseText;
 	} catch (e) {
-		throw new Error(`Error with convertToSparQL: ${e.message}.`);
+		throw new Error(`Error with interpretQueryResult: ${e.message}.`);
 	}
 };
 
-export default converToSparQL;
+export default interpretQueryResult;

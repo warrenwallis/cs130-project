@@ -4,7 +4,7 @@ import { React, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Input } from '@nextui-org/react';
 import login from '@/services/firebase/login';
-import { isValidEmail, isValidPassword } from '@/services/lib/helpers';
+import { isValidEmail, isValidPassword, timeoutError } from '@/services/lib/helpers';
 
 const Page = () => {
 	const router = useRouter();
@@ -16,6 +16,7 @@ const Page = () => {
 
 	const [emailError, setEmailError] = useState('');
 	const [passwordError, setPasswordError] = useState('');
+	const [error, setError] = useState('');
 
 	const handleSubmit = async (e) => {
 		if (!isValidEmail(email)) return timeoutError(setEmailError, 'Invalid email.');
@@ -31,9 +32,9 @@ const Page = () => {
 
 		const res = await login(email, password);
 
-		if (res.status === 204) {
-			router.push('/home');
-		}
+		if (res.status !== 204) return timeoutError(setError, 'Invalid credentials.');
+
+		router.push('/home');
 	};
 	return (
 		<div className='p-10 flex flex-col'>
@@ -67,6 +68,7 @@ const Page = () => {
 			<Button onPress={handleSubmit} className='bg-cagnos-blue rounded-md text-white px-4 py-3 mt-10'>
 				Log In
 			</Button>
+			<p className='text-red-500 mt-5 text-center'>{error}</p>
 		</div>
 	);
 };
