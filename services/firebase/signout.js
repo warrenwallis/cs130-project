@@ -1,14 +1,16 @@
-import { getAuth, signOut } from 'firebase/auth';
+import { auth } from '@/firebase';
 
 const signout = async () => {
-	const auth = getAuth();
-	signOut(auth)
-		.then(() => {
-			// Sign-out successful.
-		})
-		.catch((error) => {
-			// An error happened.
-		});
+	try {
+		await auth.signOut();
+		console.log('Successfully signed out user.');
+	} catch (e) {
+		console.log('Error with signing out user.');
+		return {
+			status: 400,
+			error: e.message,
+		};
+	}
 };
 
 export default signout;

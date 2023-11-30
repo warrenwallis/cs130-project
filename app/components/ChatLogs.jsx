@@ -1,7 +1,6 @@
 'use client';
 
 const ChatLogs = ({ messages }) => {
-	console.log(messages);
 	return (
 		<div className=''>
 			{messages?.map((message, i) => (

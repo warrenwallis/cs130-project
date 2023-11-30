@@ -1,4 +1,5 @@
 'use client';
+import signout from '@/services/firebase/signout';
 import Link from 'next/link';
 
 const NavigationTab = () => {
@@ -12,7 +13,9 @@ const NavigationTab = () => {
 					<p className='p-4 cursor-pointer hover:bg-sky-50 w-40 text-center'>Support</p>
 				</Link>
 			</div>
-			<p className='p-4 cursor-pointer hover:bg-sky-50 w-40 text-center'>Log Out</p>
+			<p onClick={signout} className='p-4 cursor-pointer hover:bg-sky-50 w-40 text-center'>
+				Log Out
+			</p>
 		</div>
 	);
 };
