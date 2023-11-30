@@ -1,7 +1,9 @@
 'use client';
-import { React, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Input } from '@nextui-org/react';
+import { isValidEmail, isValidPassword, timeoutError } from '@/services/lib/helpers';
+import register from '@/services/firebase/register';
 
 const Page = () => {
 	const router = useRouter();
@@ -14,16 +16,27 @@ const Page = () => {
 	const [emailError, setEmailError] = useState('');
 	const [passwordError, setPasswordError] = useState('');
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		console.log(user, password);
+	const handleSubmit = async () => {
+		if (!isValidEmail(email)) return timeoutError(setEmailError, 'Invalid email.');
+		// if (!isValidPassword(password))
+		// 	return timeoutError(
+		// 		setPasswordError(
+		// 			'Invalid password. Password must be at least 8 characters long and include a lowercase letter, an uppercase letter, a number, and a special character (!, @, #, $, %, ^, &, *).'
+		// 		)
+		// 	);
+
 		setUser('');
 		setPassword('');
-		router.push('/home');
+
+		const res = await register(email, password);
+
+		if (res.status === 201) {
+			router.push('/login');
+		}
 	};
 	return (
 		<div className='p-10 flex flex-col'>
-			<p className='font-medium text-2xl mb-5'>Log into OML Copilot</p>
+			<p className='font-medium text-2xl mb-5'>Register for OML Copilot</p>
 
 			<div className='flex flex-col md:flex-row gap-5'>
 				<Input
@@ -51,7 +64,7 @@ const Page = () => {
 			</div>
 
 			<Button onPress={handleSubmit} className='bg-cagnos-blue rounded-md text-white px-4 py-3 mt-10'>
-				Log In
+				Register
 			</Button>
 		</div>
 	);

@@ -3,6 +3,8 @@
 import { React, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Input } from '@nextui-org/react';
+import login from '@/services/firebase/login';
+import { isValidEmail, isValidPassword } from '@/services/lib/helpers';
 
 const Page = () => {
 	const router = useRouter();
@@ -16,11 +18,22 @@ const Page = () => {
 	const [passwordError, setPasswordError] = useState('');
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
-		console.log(user, password);
+		if (!isValidEmail(email)) return timeoutError(setEmailError, 'Invalid email.');
+		// if (!isValidPassword(password))
+		// 	return timeoutError(
+		// 		setPasswordError(
+		// 			'Invalid password. Password must be at least 8 characters long and include a lowercase letter, an uppercase letter, a number, and a special character (!, @, #, $, %, ^, &, *).'
+		// 		)
+		// 	);
+
 		setUser('');
 		setPassword('');
-		router.push('/home');
+
+		const res = await login(email, password);
+
+		if (res.status === 204) {
+			router.push('/home');
+		}
 	};
 	return (
 		<div className='p-10 flex flex-col'>
