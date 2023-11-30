@@ -1,44 +1,34 @@
 'use client';
-import { React, useState, useRef, useEffect } from 'react';
+import { React, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 const Page = () => {
-	return (
-		<section className='join join-vertical'>
-			Login Page
-			<Login />
-		</section>
-	);
-};
-
-const Login = () => {
 	const errRef = useRef();
 
-	const { push } = useRouter();
+	const router = useRouter();
 
 	const [user, setUser] = useState('');
-	const [pwd, setPwd] = useState('');
+	const [password, setPassword] = useState('');
 	const [errMsg, setErrMsg] = useState('');
 	const [success, setSuccess] = useState(false); // on success, transport to home page
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(user, pwd);
+		console.log(user, password);
 		setUser('');
-		setPwd('');
+		setPassword('');
 		setSuccess(true);
-		push('../home');
+		router.push('/home');
 	};
-
 	return (
 		<div>
 			<p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live='assertive'>
 				{errMsg}
 			</p>
 
-			<form className='join join-vertical' onSubmit={handleSubmit}>
+			<form className='flex flex-col' onSubmit={handleSubmit}>
 				<h1>Login</h1>
-				<div className='join join-vertical'>
+				<div className='flex gap-5'>
 					<label htmlFor='username'>Username: </label>
 					<input
 						type='text'
@@ -56,12 +46,12 @@ const Login = () => {
 						id='password'
 						name='password'
 						className='information'
-						onChange={(e) => setPwd(e.target.value)}
-						value={pwd}
+						onChange={(e) => setPassword(e.target.value)}
+						value={password}
 						required
 					/>
 				</div>
-				<button className='btn btn-wide' type='submit'>
+				<button className='' type='submit'>
 					Submit
 				</button>
 				<p>
