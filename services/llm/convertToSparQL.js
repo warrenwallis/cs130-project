@@ -3,7 +3,7 @@
 import OpenAI from 'openai';
 
 const converToSparQL = async (query) => {
-	const instruction = `
+	const instructions = `
 Convert the following question into a SPARQL query that uses the OML vocabulary terms properly.
 This will be interacting with the Jena-Fuseki server. Only return this query. 
 Do not say anything else. Your response will be plugged in directly to the knowledge base.',

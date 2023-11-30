@@ -1,14 +1,17 @@
 'use client';
 
+import { converToSparQL } from '@/services/llm';
 import { Button, Input } from '@nextui-org/react';
 import { useState } from 'react';
 
 const InputForm = ({ messages, setMessages }) => {
 	const [message, setMessage] = useState('');
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		setMessages([...messages, message]);
 		setMessage('');
+		const res = await converToSparQL(message);
+		console.log(res);
 	};
 
 	return (

@@ -1,5 +1,3 @@
-import converToSparQL from "./convertToSparQL";
+import converToSparQL from './convertToSparQL';
 
-export {
-    converToSparQL;
-}
+export { converToSparQL };

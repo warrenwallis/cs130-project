@@ -1,4 +1,4 @@
-import NavigationTab from '@/src/components/NavigationTab';
+import NavigationTab from '@/app/components/NavigationTab';
 
 const HomeLayout = async ({ children }) => {
 	return (
