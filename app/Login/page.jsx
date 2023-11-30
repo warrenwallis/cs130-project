@@ -27,7 +27,7 @@ const Login = () => {
 		setUser('');
 		setPwd('');
 		setSuccess(true);
-		push('../Home');
+		push('../home');
 	};
 
 	return (
@@ -39,7 +39,7 @@ const Login = () => {
 			<form className='join join-vertical' onSubmit={handleSubmit}>
 				<h1>Login</h1>
 				<div className='join join-vertical'>
-					<label for='username'>Username: </label>
+					<label htmlFor='username'>Username: </label>
 					<input
 						type='text'
 						id='username'

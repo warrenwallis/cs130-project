@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+import { nextui } from '@nextui-org/react';
+
 module.exports = {
 	content: ['./components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
 	theme: {
@@ -9,5 +12,6 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('daisyui')],
+	darkMode: 'class',
+	plugins: [nextui()],
 };
