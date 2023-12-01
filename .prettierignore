@@ -1,0 +1,8 @@
+# Ignore artifacts:
+build
+dist
+.github
+.expo
+.vscode
+assets
+node_modules
