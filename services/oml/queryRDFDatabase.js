@@ -19,7 +19,8 @@ const queryRDFDatabase = async (SPARQLQuery) => {
 		}
 
 		const data = await response.json();
-		return data;
+		const dataAsString = JSON.stringify(data);
+		return dataAsString;
 	} catch (e) {
 		throw new Error(`Error with queryRDFDatabase: ${e.message}`);
 	}

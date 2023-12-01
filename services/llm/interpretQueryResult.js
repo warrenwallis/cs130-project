@@ -4,7 +4,8 @@ import OpenAI from 'openai';
 
 const interpretQueryResult = async (query, result) => {
 	const instructions = `
-Interpret the following result from the RDF that was queried with SPARKQL:
+Answer the query succinctly using this result we polled from a formal database. 
+Only answer the question. Do not say more than necessary.
 
 Query:
 ${query}
@@ -13,7 +14,7 @@ ${query}
 Result:
 ${result}
 `;
-
+console.log(instructions)
 	try {
 		// connect to OpenAI
 		const openai = new OpenAI({
