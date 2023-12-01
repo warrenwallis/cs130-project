@@ -4,12 +4,10 @@ import { React, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Input } from '@nextui-org/react';
 import login from '@/services/firebase/login';
-import { isValidEmail, isValidPassword, timeoutError } from '@/services/lib/helpers';
+import { isValidEmail, timeoutError } from '@/services/lib/helpers';
 
 const Page = () => {
 	const router = useRouter();
-
-	const [user, setUser] = useState('');
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -27,7 +25,6 @@ const Page = () => {
 		// 		)
 		// 	);
 
-		setUser('');
 		setPassword('');
 
 		const res = await login(email, password);

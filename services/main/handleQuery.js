@@ -1,11 +1,11 @@
 'use server';
 
-import { converToSparQL, interpretQueryResult } from '../llm';
+import { convertToSparQL, interpretQueryResult } from '../llm';
 import { queryRDFDatabase } from '../oml';
 
 const handleQuery = async (query) => {
 	try {
-		const sparQLQuery = await converToSparQL(query);
+		const sparQLQuery = await convertToSparQL(query);
 		const queryResult = await queryRDFDatabase(sparQLQuery);
 		const queryInterpretation = await interpretQueryResult(queryResult);
 

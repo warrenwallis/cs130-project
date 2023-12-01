@@ -1,6 +1,5 @@
 'use client';
 
-import { converToSparQL } from '@/services/llm';
 import handleQuery from '@/services/main/handleQuery';
 import { Button, Input } from '@nextui-org/react';
 import { useState } from 'react';

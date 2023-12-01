@@ -1,4 +1,4 @@
-import converToSparQL from './convertToSparQL';
+import convertToSparQL from './convertToSparQL';
 import interpretQueryResult from './interpretQueryResult';
 
-export { converToSparQL, interpretQueryResult };
+export { convertToSparQL, interpretQueryResult };
