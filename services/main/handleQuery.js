@@ -1,17 +1,21 @@
 'use server';
 
+import { removeCodeBlocks } from '@/services/lib/helpers';
 import { convertToSparQL, interpretQueryResult } from '../llm';
 import { queryRDFDatabase } from '../oml';
 
 const handleQuery = async (query) => {
 	try {
-		const sparQLQuery = await convertToSparQL(query);
+		const sparQLQueryMD = await convertToSparQL(query);
+		const sparQLQuery = removeCodeBlocks(sparQLQueryMD);
 		const queryResult = await queryRDFDatabase(sparQLQuery);
-		const queryInterpretation = await interpretQueryResult(queryResult);
+		const queryInterpretation = await interpretQueryResult(query, queryResult);
 
 		return {
 			status: 200,
 			queryInterpretation,
+			queryResult,
+			sparQLQuery,
 			message: 'Query successfully interpreted.',
 		};
 	} catch (e) {

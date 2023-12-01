@@ -19,6 +19,11 @@ export const isValidPassword = (password) => {
 	);
 };
 
+export const removeCodeBlocks = (inputString) => {
+	return inputString.replace(/```sparql|```/g, '');
+}
+
+
 export const timeoutError = (setError, errMessage) => {
 	setTimeout(() => {
 		setError('');

@@ -8,23 +8,26 @@ const InputForm = ({ user, messages, setMessages }) => {
 	const [message, setMessage] = useState('');
 
 	const handleSubmit = async () => {
-		// paste user's message to chat
+		// get oml copilot's response
+		const interpretedResult = await handleQuery(message);
 		setMessages([
 			...messages,
 			{
 				sender: user?.email,
 				message,
 			},
-		]);
-
-		// get oml copilot's response
-		const interpretedResult = await handleQuery(message);
-		setMessages([
-			...messages,
 			{
 				sender: 'OML Copilot',
 				message: interpretedResult.queryInterpretation,
 			},
+			{
+				sender: 'OML Copilot',
+				message: `The sparQL query used was 
+				  	${interpretedResult.sparQLQuery} 
+
+					Querying the formal database gave 
+					${interpretedResult.queryResult}`,
+			}
 		]);
 
 		setMessage('');
