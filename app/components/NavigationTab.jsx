@@ -40,7 +40,7 @@ const NavigationTab = ({ tabs, setTabs, setSelectedTab }) => {
       <div className='flex flex-col items-center'>
         <input
           type='text'
-          placeholder='Enter tab name'
+          placeholder='New Chat Name'
           value={newTabName}
           onChange={(e) => setNewTabName(e.target.value)}
           className='p-2 mb-2'
