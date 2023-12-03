@@ -14,6 +14,7 @@ const NavigationTab = ({ tabs, setTabs, setSelectedTab }) => {
       const newTab = { label: newTabName, link: '/home' };
       setTabs([...tabs, newTab]);
       setNewTabName(''); // Clear the input field after adding a new tab
+      setSelectedTab(newTabName);
     }
   };
 
@@ -40,10 +41,10 @@ const NavigationTab = ({ tabs, setTabs, setSelectedTab }) => {
       <div className='flex flex-col items-center'>
         <input
           type='text'
-          placeholder='Enter tab name'
+          placeholder='Enter Chat Name'
           value={newTabName}
           onChange={(e) => setNewTabName(e.target.value)}
-          className='p-2 mb-2'
+          className='p-2 mb-2 text-center'
         />
         <button onClick={addNewTab} className='p-4 cursor-pointer hover:bg-sky-50 w-40 text-center'>
           Add

@@ -15,7 +15,6 @@ const Page = () => {
   // Define the initial tabs
   const initialTabs = [
     { label: 'Home', link: '/home' },
-    { label: 'Support', link: '/home' },
   ];
 
   // State to manage the list of tabs
@@ -28,17 +27,18 @@ const Page = () => {
   }, [selectedTab]);
 
   return (
-	<>
-	<NavigationTab tabs={tabs} setTabs={setTabs} setSelectedTab={setSelectedTab} />
-    <div className='h-screen flex flex-col justify-between p-5'>
-      <div className=''>
-        <p className='text-2xl font-medium mb-5'>OML Copilot x {user?.email} - {selectedTab}</p>
-        <ChatLogs user={user} messages={messages} />
-      </div>
+    <div className='flex flex-col'>
+      <NavigationTab tabs={tabs} setTabs={setTabs} setSelectedTab={setSelectedTab} />
+      <div className='h-screen flex flex-col justify-between p-5 ml-20'>
+        <div className=''>
+          <p className='text-2xl font-medium mb-5'>OML Copilot x {user?.email} - {selectedTab}</p>
+          <ChatLogs user={user} messages={messages} />
+        </div>
 
-      <InputForm user={user} messages={messages} setMessages={setMessages} />
+        <InputForm user={user} messages={messages} setMessages={setMessages} />
+      </div>
     </div>
-	</>
+
   );
 };
 
