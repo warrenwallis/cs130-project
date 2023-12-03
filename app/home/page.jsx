@@ -6,6 +6,8 @@ import InputForm from '../components/InputForm';
 import ChatLogs from '../components/ChatLogs';
 import { useUserAuthContext } from '../providers/UserProvider';
 import NavigationTab from '@/app/components/NavigationTab';
+import addChatToFirestore from '../../services/backend/backendManager';
+
 
 
 const Page = () => {
@@ -25,6 +27,7 @@ const Page = () => {
   useEffect(() => {
     // Do something with the selectedTab whenever it changes
     console.log(`Selected Tab in Page: ${selectedTab}`);
+
   }, [selectedTab]);
 
   return (
