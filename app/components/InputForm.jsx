@@ -20,7 +20,9 @@ const InputForm = ({ user, tab, messages, setMessages }) => {
 			},
 			{
 				sender: 'OML Copilot',
-				message: interpretedResult.queryInterpretation,
+				message: interpretedResult.queryInterpretation !== undefined
+					? interpretedResult.queryInterpretation
+					: '',
 			},
 			{
 				sender: 'OML Copilot',

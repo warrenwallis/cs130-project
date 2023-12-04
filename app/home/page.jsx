@@ -39,8 +39,11 @@ const Page = () => {
 		  tempTabs.push( { label: doc.id, link: '/home' });
 		});
   
-		// Update the tabs state with the new data
-		setTabs(tempTabs);
+		if (tempTabs.length == 0){ 
+			setTabs([{label: "Home", link: '/home'}])
+		} else {
+			setTabs(tempTabs);
+		}
 
       } catch (error) {
         console.error(error);
