@@ -32,10 +32,11 @@ const Page = () => {
 		}
 	};
 	return (
-		<div className='p-10 flex flex-col'>
-			<p className='font-medium text-2xl mb-5'>Register for OML Copilot</p>
+		<div class="flex flex-col h-screen justify-center items-center">
+		<div className='p-10 flex flex-col place-items-center bg-black align-middle rounded-lg'>
+			<p className='font-medium text-2xl text-white mb-5'>Create An Account</p>
 
-			<div className='flex flex-col md:flex-row gap-5'>
+			<div className='flex flex-col md:flex-col gap-5'>
 				<Input
 					label='Email'
 					isRequired
@@ -60,11 +61,14 @@ const Page = () => {
 				/>
 			</div>
 
-			<Button onPress={handleSubmit} className='bg-cagnos-blue rounded-md text-white px-4 py-3 mt-10'>
-				Register
+			<Button onPress={handleSubmit} className='bg-gray-400 rounded-md text-white px-4 py-3 mt-10'>
+				Create Account
 			</Button>
+		</div>
 		</div>
 	);
 };
 
 export default Page;
+
+//p-10 flex flex-col
