@@ -2,7 +2,7 @@
 
 const ChatLogs = ({ messages }) => {
 	return (
-		<div className='flex flex-col gap-3'>
+		<div className='flex flex-col gap-3 ml-5'>
 			{messages?.map((message, i) => (
 				<div key={i} className='flex flex-col'>
 					{/* <strong>{message.person}: </strong> */}

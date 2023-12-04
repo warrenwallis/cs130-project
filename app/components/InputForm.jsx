@@ -27,7 +27,7 @@ const InputForm = ({ user, tab, messages, setMessages }) => {
 				message: `The sparQL query used was 
 				  	${interpretedResult.sparQLQuery} 
 
-					Querying the formal database gave 
+					. Querying the formal database gave 
 					${interpretedResult.queryResult}`,
 			}
 		]
@@ -62,13 +62,13 @@ const InputForm = ({ user, tab, messages, setMessages }) => {
 		<>
 			<div className='flex items-center gap-3'>
 				<Input
-					className='p-3 flex'
+					className='p-2 flex'
 					variant='underlined'
 					placeholder='What is the best {query}'
 					value={message}
 					onValueChange={(msg) => setMessage(msg)}
 				/>
-				<Button onPress={handleSubmit} className='flex bg-cagnos-blue text-white px-4 py-2 rounded-md'>
+				<Button onPress={handleSubmit} className='flex bg-gray-600 text-white px-4 rounded-md'>
 					Send
 				</Button>
 			</div>
