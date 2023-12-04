@@ -6,7 +6,7 @@ import InputForm from '../components/InputForm';
 import ChatLogs from '../components/ChatLogs';
 import { useUserAuthContext } from '../providers/UserProvider';
 import NavigationTab from '@/app/components/NavigationTab';
-import {collection, db, doc, addDoc, setDoc, getDoc, getDocs, serverTimestamp} from '../../firebase'
+import {collection, db, doc, getDoc, getDocs} from '../../firebase'
 
 const Page = () => {
   const { user } = useUserAuthContext();

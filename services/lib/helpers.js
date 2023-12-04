@@ -20,7 +20,10 @@ export const isValidPassword = (password) => {
 };
 
 export const removeCodeBlocks = (inputString) => {
-	return inputString.replace(/```sparql|```/g, '');
+	inputString = inputString.replace(/```sparql|```/g, '');
+	inputString = inputString.replace(/#>/g, '>');
+	inputString = inputString.replace(/#.*\n/g, '');
+	return inputString;
 }
 
 
