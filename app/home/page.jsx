@@ -82,9 +82,9 @@ const Page = () => {
     setSelectedTab(tab);
   }
   return (
-	<>
+<div className='flex flex-col'>
 	<NavigationTab user={user} tabs={tabs} setTabs={setTabs} setSelectedTab={selectTab} />
-    <div className='h-screen flex flex-col justify-between p-5'>
+    <div className='h-screen flex flex-col justify-between p-5 ml-20'>
       <div className=''>
         <p className='text-2xl font-medium mb-5'>OML Copilot x {user?.email} - {selectedTab}</p>
         <ChatLogs user={user} messages={messages} />
@@ -92,7 +92,8 @@ const Page = () => {
 
         <InputForm user={user} tab ={selectedTab} messages={messages} setMessages={setMessages} />
       </div>
-    </>
+    </div>
+
   );
 };
 
