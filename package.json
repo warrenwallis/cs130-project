@@ -11,7 +11,9 @@
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
     "firebase": "^10.7.0",
+    "firebase-admin": "^11.11.1",
     "framer-motion": "^10.16.9",
+    "fs": "^0.0.1-security",
     "next": "14.0.1",
     "openai": "^4.20.1",
     "react": "^18",
