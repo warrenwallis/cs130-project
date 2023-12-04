@@ -39,8 +39,11 @@ const Page = () => {
 		  tempTabs.push( { label: doc.id, link: '/home' });
 		});
   
-		// Update the tabs state with the new data
-		setTabs(tempTabs);
+		if (tempTabs.length == 0){ 
+			setTabs([{label: "Home", link: '/home'}])
+		} else {
+			setTabs(tempTabs);
+		}
 
       } catch (error) {
         console.error(error);
@@ -82,17 +85,19 @@ const Page = () => {
     setSelectedTab(tab);
   }
   return (
-	<>
-	<NavigationTab user={user} tabs={tabs} setTabs={setTabs} setSelectedTab={selectTab} />
-    <div className='h-screen flex flex-col justify-between p-5'>
-      <div className=''>
-        <p className='text-2xl font-medium mb-5'>OML Copilot x {user?.email} - {selectedTab}</p>
-        <ChatLogs user={user} messages={messages} />
-      </div>
+    <div className='flex flex-col'>
+      <NavigationTab tabs={tabs} setTabs={setTabs} setSelectedTab={selectTab} />
+      <div className='h-screen flex flex-col justify-between p-5 border-2 border-black'>
+        <div className=''>
+          <p className='text-2xl font-medium mb-5 text-right'>Hello {user?.email}! Welcome to OML Copilot.</p>
+          <p className='text-xl font-medium mb-5 text-right'>You are viewing "{selectedTab}"</p>
+          <ChatLogs user={user} messages={messages} />
+        </div>
 
-        <InputForm user={user} tab ={selectedTab} messages={messages} setMessages={setMessages} />
+        <InputForm user={user} tab={selectedTab} messages={messages} setMessages={setMessages} />
       </div>
-    </>
+    </div>
+
   );
 };
 
