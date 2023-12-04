@@ -24,14 +24,22 @@ const NavigationTab = ({ tabs, setTabs, setSelectedTab }) => {
   };
 
   return (
-    <div className='flex flex-col fixed top-0 left-0 h-full items-center border-r-2 border-slate-100 justify-between'>
+    <div className='flex flex-col fixed top-0 left-0 h-full items-center p-2 justify-between bg-black text-white'>
+      <div className='items-center'>
+        <Link href='/' className='items-center'>
+          <p onClick={signout} className='p-4 cursor-pointer hover:bg-gray-100 hover:text-gray-400 w-40 text-center'>
+            Log Out
+          </p>
+        </Link>
+        <div className="bg-white w-50">Break</div>
+      </div> 
       <div className=''>
         {/* Map over the tabs array to render each tab dynamically */}
         {tabs.map((tab, index) => (
           <Link key={index} href={tab.link}>
             <p
               onClick={() => handleTabClick(tab.label)}
-              className={`p-4 cursor-pointer hover:bg-sky-50 w-40 text-center`}
+              className={`p-2 w-40 cursor-pointer bg-gray-500 hover:bg-gray-100 hover:text-gray-400 text-center`}
             >
               {tab.label}
             </p>
@@ -44,17 +52,12 @@ const NavigationTab = ({ tabs, setTabs, setSelectedTab }) => {
           placeholder='Enter Chat Name'
           value={newTabName}
           onChange={(e) => setNewTabName(e.target.value)}
-          className='p-2 mb-2 text-center'
+          className='p-2 mb-2 text-center text-gray-400 w-40'
         />
-        <button onClick={addNewTab} className='p-4 cursor-pointer hover:bg-sky-50 w-40 text-center'>
+        <button onClick={addNewTab} className='p-4 cursor-pointer hover:bg-gray-100 hover:text-gray-400 w-40 text-center'>
           Add
         </button>
       </div>
-      <Link href='/'>
-        <p onClick={signout} className='p-4 cursor-pointer hover:bg-sky-50 w-40 text-center'>
-          Log Out
-        </p>
-      </Link>
     </div>
   );
 };

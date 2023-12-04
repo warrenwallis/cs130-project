@@ -29,9 +29,10 @@ const Page = () => {
   return (
     <div className='flex flex-col'>
       <NavigationTab tabs={tabs} setTabs={setTabs} setSelectedTab={setSelectedTab} />
-      <div className='h-screen flex flex-col justify-between p-5 ml-20'>
+      <div className='h-screen flex flex-col justify-between p-5 border-2 border-black'>
         <div className=''>
-          <p className='text-2xl font-medium mb-5'>OML Copilot x {user?.email} - {selectedTab}</p>
+          <p className='text-2xl font-medium mb-5 text-right'>Hello {user?.email}! Welcome to OML Copilot.</p>
+          <p className='text-xl font-medium mb-5 text-right'>You are viewing "{selectedTab}"</p>
           <ChatLogs user={user} messages={messages} />
         </div>
 

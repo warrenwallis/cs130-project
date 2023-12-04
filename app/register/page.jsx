@@ -5,6 +5,10 @@ import { Button, Input } from '@nextui-org/react';
 import { isValidEmail, timeoutError } from '@/services/lib/helpers';
 import register from '@/services/firebase/register';
 
+const darkStyle = {
+	color: 'white'
+};
+
 const Page = () => {
 	const router = useRouter();
 
@@ -36,8 +40,9 @@ const Page = () => {
 		<div className='p-10 flex flex-col place-items-center bg-black align-middle rounded-lg'>
 			<p className='font-medium text-2xl text-white mb-5'>Create An Account</p>
 
-			<div className='flex flex-col md:flex-col gap-5'>
+			<div className='flex flex-col md:flex-col gap-5 text-white'>
 				<Input
+					style={darkStyle}
 					label='Email'
 					isRequired
 					variant='underlined'
@@ -49,6 +54,7 @@ const Page = () => {
 				/>
 
 				<Input
+					style={darkStyle}
 					label='Password'
 					isRequired
 					type='password'
