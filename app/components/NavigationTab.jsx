@@ -2,11 +2,11 @@
 'use client';
 import { useState } from 'react';
 import signout from '@/services/firebase/signout';
-import { collection, db, addDoc, serverTimestamp } from '../../firebase'
+import {collection, db, doc, addDoc, setDoc, serverTimestamp} from '../../firebase'
 import Link from 'next/link';
 // import addChatToFirestore from '../../services/backend/backendManager';
 
-const NavigationTab = ({ tabs, setTabs, setSelectedTab }) => {
+const NavigationTab = ({ user, tabs, setTabs, setSelectedTab }) => {
   // State to manage the input value for the new tab
   const [newTabName, setNewTabName] = useState('');
 
@@ -16,33 +16,7 @@ const NavigationTab = ({ tabs, setTabs, setSelectedTab }) => {
       const newTab = { label: newTabName, link: '/home' };
       setTabs([...tabs, newTab]);
       setNewTabName(''); // Clear the input field after adding a new tab
-
-
-      // const chatValue = `New tab added: ${newTabName}`;
-      // const result = await addChatToFirestore(chatValue);
-
-      // console.log(result);
-
-      try {
-        const chatsCollection = collection(db, 'chats');
-        // Add a new document with a generated ID
-        const docRef = await addDoc(chatsCollection, newTab, {
-          value: 'temp',
-          timestamp: serverTimestamp(),
-        });
-
-        return {
-          status: 204,
-          message: `Document added with ID: ${docRef.id}`,
-        };
-      } catch (error) {
-        return {
-          status: 400,
-          error: `Error adding document: ${error.message}`,
-        };
-      }
-      console.log("done");
-
+	  
     }
   };
 
