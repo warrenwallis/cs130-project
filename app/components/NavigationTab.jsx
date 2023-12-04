@@ -2,14 +2,16 @@
 'use client';
 import { useState } from 'react';
 import signout from '@/services/firebase/signout';
+import {collection, db, doc, addDoc, setDoc, serverTimestamp} from '../../firebase'
 import Link from 'next/link';
+// import addChatToFirestore from '../../services/backend/backendManager';
 
-const NavigationTab = ({ tabs, setTabs, setSelectedTab }) => {
+const NavigationTab = ({ user, tabs, setTabs, setSelectedTab }) => {
   // State to manage the input value for the new tab
   const [newTabName, setNewTabName] = useState('');
 
   // Function to add a new tab
-  const addNewTab = () => {
+  const addNewTab = async () => {
     if (newTabName.trim() !== '') {
       const newTab = { label: newTabName, link: '/home' };
       setTabs([...tabs, newTab]);
@@ -19,7 +21,7 @@ const NavigationTab = ({ tabs, setTabs, setSelectedTab }) => {
   };
 
   // Function to handle tab click
-  const handleTabClick = (label) => {
+  const handleTabClick = async (label) => {
     setSelectedTab(label);
   };
 

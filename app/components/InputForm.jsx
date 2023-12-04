@@ -3,14 +3,16 @@
 import handleQuery from '@/services/main/handleQuery';
 import { Button, Input } from '@nextui-org/react';
 import { useState } from 'react';
+import {collection, db, doc, addDoc, setDoc, serverTimestamp} from '../../firebase'
 
-const InputForm = ({ user, messages, setMessages }) => {
+const InputForm = ({ user, tab, messages, setMessages }) => {
 	const [message, setMessage] = useState('');
 
 	const handleSubmit = async () => {
 		// get oml copilot's response
 		const interpretedResult = await handleQuery(message);
-		setMessages([
+
+		const newMessage = [
 			...messages,
 			{
 				sender: user?.email,
@@ -28,7 +30,30 @@ const InputForm = ({ user, messages, setMessages }) => {
 					Querying the formal database gave 
 					${interpretedResult.queryResult}`,
 			}
-		]);
+		]
+
+		console.log("right before new message");
+
+		setMessages(newMessage);
+
+		console.log("successfully reached right before database and did nothing");
+		//write to cloud firestore		
+		try {
+			console.log("User:", user.email);
+			const usersCol = collection(db, 'users'); //root
+			const userDoc = doc(usersCol, user.email);
+			const chatsCol = collection(userDoc, 'chats');
+			const newTabDoc = doc(chatsCol, tab);
+			// Add a new document with the specified ID
+			await setDoc(newTabDoc, {
+				chatLogs: newMessage,
+				timestamp: serverTimestamp(),
+			});
+			console.log("successfully wrote to database");
+		} catch (error) {
+			console.log(error);
+		}
+		
 
 		setMessage('');
 	};
