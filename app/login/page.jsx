@@ -19,12 +19,6 @@ const Page = () => {
 
 	const handleSubmit = async (e) => {
 		if (!isValidEmail(email)) return timeoutError(setEmailError, 'Invalid email.');
-		// if (!isValidPassword(password))
-		// 	return timeoutError(
-		// 		setPasswordError(
-		// 			'Invalid password. Password must be at least 8 characters long and include a lowercase letter, an uppercase letter, a number, and a special character (!, @, #, $, %, ^, &, *).'
-		// 		)
-		// 	);
 
 		setPassword('');
 
@@ -36,41 +30,41 @@ const Page = () => {
 	};
 	return (
 		<div class="flex flex-col h-screen justify-center items-center bg-black">
-		<div className='p-10 flex flex-col place-items-center align-middle rounded-lg bg-white'>
-			<p className='font-medium text-2xl mb-5'>Login</p>
+			<div className='p-10 flex flex-col place-items-center align-middle rounded-lg bg-white'>
+				<p className='font-medium text-2xl mb-5'>Login</p>
 
-			<div className='flex flex-col md:flex-col gap-5'>
-				<Input
-					label='Email'
-					isRequired
-					variant='underlined'
-					placeholder='Enter email'
-					value={email}
-					onValueChange={(value) => setEmail(value)}
-					isInvalid={emailError}
-					errorMessage={emailError}
-				/>
+				<div className='flex flex-col md:flex-col gap-5'>
+					<Input
+						label='Email'
+						isRequired
+						variant='underlined'
+						placeholder='Enter email'
+						value={email}
+						onValueChange={(value) => setEmail(value)}
+						isInvalid={emailError}
+						errorMessage={emailError}
+					/>
 
-				<Input
-					label='Password'
-					isRequired
-					type='password'
-					variant='underlined'
-					placeholder='Enter password'
-					value={password}
-					onValueChange={(value) => setPassword(value)}
-					isInvalid={passwordError}
-					errorMessage={passwordError}
-				/>
+					<Input
+						label='Password'
+						isRequired
+						type='password'
+						variant='underlined'
+						placeholder='Enter password'
+						value={password}
+						onValueChange={(value) => setPassword(value)}
+						isInvalid={passwordError}
+						errorMessage={passwordError}
+					/>
+				</div>
+
+				<Button onPress={handleSubmit} className='bg-gray-400 rounded-md px-4 py-3 mt-10'>
+					Log In
+				</Button>
+				<p className='text-red-500 mt-5 text-center'>{error}</p>
 			</div>
-
-			<Button onPress={handleSubmit} className='bg-gray-400 rounded-md px-4 py-3 mt-10'>
-				Log In
-			</Button>
-			<p className='text-red-500 mt-5 text-center'>{error}</p>
-		</div>
-		<br></br>
-		<Link href='/register' className='text-white'>Create An Account</Link>
+			<br></br>
+			<Link href='/register' className='text-white'>Create An Account</Link>
 		</div>
 	);
 };

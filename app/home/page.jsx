@@ -83,7 +83,7 @@ const Page = () => {
   }
   return (
     <div className='flex flex-col'>
-      <NavigationTab tabs={tabs} setTabs={setTabs} setSelectedTab={setSelectedTab} />
+      <NavigationTab tabs={tabs} setTabs={setTabs} setSelectedTab={selectTab} />
       <div className='h-screen flex flex-col justify-between p-5 border-2 border-black'>
         <div className=''>
           <p className='text-2xl font-medium mb-5 text-right'>Hello {user?.email}! Welcome to OML Copilot.</p>
@@ -91,7 +91,7 @@ const Page = () => {
           <ChatLogs user={user} messages={messages} />
         </div>
 
-        <InputForm user={user} messages={messages} setMessages={setMessages} />
+        <InputForm user={user} tab={selectedTab} messages={messages} setMessages={setMessages} />
       </div>
     </div>
 
