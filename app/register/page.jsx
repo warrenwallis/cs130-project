@@ -20,13 +20,6 @@ const Page = () => {
 
 	const handleSubmit = async () => {
 		if (!isValidEmail(email)) return timeoutError(setEmailError, 'Invalid email.');
-		// if (!isValidPassword(password))
-		// 	return timeoutError(
-		// 		setPasswordError(
-		// 			'Invalid password. Password must be at least 8 characters long and include a lowercase letter, an uppercase letter, a number, and a special character (!, @, #, $, %, ^, &, *).'
-		// 		)
-		// 	);
-
 		setPassword('');
 
 		const res = await register(email, password);

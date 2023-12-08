@@ -6,7 +6,7 @@ const convertToSparQL = async (query) => {
 	const instructions = `
 Convert the following question into a SPARQL query that uses the OML vocabulary terms properly.
 This will be interacting with the Jena-Fuseki server. I will query from this endpoint https://query.wikidata.org/sparql.  
-Only return this query. Do not say anything else. Your response will be plugged in directly to the knowledge base.',
+Only return this query. Do not add comments to the query. Do not say anything else. Your response will be plugged in directly to the knowledge base.',
 
 ${query}
 
