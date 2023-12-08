@@ -66,7 +66,7 @@ const InputForm = ({ user, tab, messages, setMessages }) => {
 				<Input
 					className='p-2 flex'
 					variant='underlined'
-					placeholder='What is the best {query}'
+					placeholder='Enter your query here'
 					value={message}
 					onValueChange={(msg) => setMessage(msg)}
 				/>
