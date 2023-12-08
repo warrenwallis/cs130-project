@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 const Page = () => {
 	return (
-		<div className='p-10 flex flex-col'>
-			<p className='text-2xl font-medium mb-5'>OML Copilot</p>
-			<div className='flex gap-5'>
-				<Link href='/login'>Login</Link>
-				<Link href='/register'>Register</Link>
+		<div className='flex flex-col h-screen justify-center bg-slate-100'>
+			<p className='text-2xl font-medium mb-5 text-center text-slate-800'>Get Started with OML Copilot</p>
+			<div className='flex gap-5 w-50 justify-center '>
+				<Link className='p-5 rounded-lg bg-black text-white hover:text-slate-900 hover:bg-slate-400' href='/login'>Login</Link>
+				<Link className='p-5 rounded-lg bg-black text-white hover:text-slate-900 hover:bg-slate-400' href='/register'>Register</Link>
 			</div>
 		</div>
 	);

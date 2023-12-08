@@ -26,14 +26,14 @@ const NavigationTab = ({ user, tabs, setTabs, setSelectedTab }) => {
   };
 
   return (
-    <div className='flex flex-col fixed top-0 left-0 h-full items-center p-2 justify-between bg-black text-white'>
+    <div className='flex flex-col fixed top-0 left-0 h-full items-center justify-between bg-black text-white'>
       <div className='items-center'>
         <Link href='/' className='items-center'>
           <p onClick={signout} className='p-4 cursor-pointer hover:bg-gray-100 hover:text-gray-400 w-40 text-center'>
             Log Out
           </p>
         </Link>
-        <div className="bg-white w-50">Break</div>
+        <div className="bg-white h-2 w-50"> </div>
       </div> 
       <div className=''>
         {/* Map over the tabs array to render each tab dynamically */}
@@ -41,7 +41,7 @@ const NavigationTab = ({ user, tabs, setTabs, setSelectedTab }) => {
           <Link key={index} href={tab.link}>
             <p
               onClick={() => handleTabClick(tab.label)}
-              className={`p-2 w-40 cursor-pointer bg-gray-500 hover:bg-gray-100 hover:text-gray-400 text-center`}
+              className={`p-2 w-40 cursor-pointer bg-gray-400 hover:bg-gray-100 hover:text-gray-400 text-center`}
             >
               {tab.label}
             </p>

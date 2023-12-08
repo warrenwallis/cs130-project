@@ -29,7 +29,6 @@ const Page = () => {
 		router.push('/home');
 	};
 	return (
-		<div>
 		<div class="flex flex-col h-screen justify-center items-center bg-black">
 			<div className='p-10 flex flex-col place-items-center align-middle rounded-lg bg-white'>
 				<p className='font-medium text-2xl mb-5'>Login</p>
@@ -65,10 +64,7 @@ const Page = () => {
 				<p className='text-red-500 mt-5 text-center'>{error}</p>
 			</div>
 			<br></br>
-			<Link href='/register' className='text-white'>Create An Account</Link>
-		</div>
-		<br></br>
-		<Link href='/register' className='text-white'>Create An Account</Link>
+			<Link href='/register' className='text-white hover:text-slate-400'>Create An Account</Link>
 		</div>
 	);
 };
