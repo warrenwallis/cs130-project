@@ -64,7 +64,7 @@ const Page = () => {
 				<p className='text-red-500 mt-5 text-center'>{error}</p>
 			</div>
 			<br></br>
-			<Link href='/register' className='text-white'>Create An Account</Link>
+			<Link href='/register' className='text-white hover:text-slate-400'>Create An Account</Link>
 		</div>
 	);
 };
