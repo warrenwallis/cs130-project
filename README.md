@@ -23,3 +23,6 @@ Services contains all externals services we use? App contains all the UI.
 
 ## Install dependencies
 ```npm install```
+
+## How to deploy
+```npm run deploy```
