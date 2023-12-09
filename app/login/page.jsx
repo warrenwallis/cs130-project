@@ -7,6 +7,7 @@ import login from '@/services/firebase/login';
 import { isValidEmail, timeoutError } from '@/services/lib/helpers';
 import Link from 'next/link';
 
+//login page
 const Page = () => {
 	const router = useRouter();
 
@@ -28,6 +29,7 @@ const Page = () => {
 
 		router.push('/home');
 	};
+	
 	return (
 		<div class="flex flex-col h-screen justify-center items-center bg-black">
 			<div className='p-10 flex flex-col place-items-center align-middle rounded-lg bg-white'>

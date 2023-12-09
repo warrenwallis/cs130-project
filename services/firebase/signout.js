@@ -1,5 +1,6 @@
 import { auth } from '@/firebase';
 
+//handle signout with firebase
 const signout = async () => {
 	try {
 		await auth.signOut();

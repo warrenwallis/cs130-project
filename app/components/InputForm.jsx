@@ -5,6 +5,7 @@ import { Button, Input } from '@nextui-org/react';
 import { useState } from 'react';
 import {collection, db, doc, addDoc, setDoc, serverTimestamp} from '../../firebase'
 
+//the chat bar
 const InputForm = ({ user, tab, messages, setMessages }) => {
 	const [message, setMessage] = useState('');
 

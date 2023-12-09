@@ -8,7 +8,7 @@ import register from '@/services/firebase/register';
 const darkStyle = {
 	color: 'white'
 };
-
+//code for registering people
 const Page = () => {
 	const router = useRouter();
 
