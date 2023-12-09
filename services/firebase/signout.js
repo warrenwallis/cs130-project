@@ -1,6 +1,8 @@
 import { auth } from '@/firebase';
-
-//handle signout with firebase
+/**
+ * Signs out using firebase
+ * @returns {Object} Status code
+ */
 const signout = async () => {
 	try {
 		await auth.signOut();

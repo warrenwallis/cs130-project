@@ -1,7 +1,12 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 
-//handle login with firebase given email and password
+/**
+ * Takes email and password and handles login using firebase
+ * @param {string} email email of user
+ * @param {string} password password of user
+ * @returns {Object} Status code
+ */
 const login = async (email, password) => {
 	try {
 		const res = await signInWithEmailAndPassword(auth, email, password);
