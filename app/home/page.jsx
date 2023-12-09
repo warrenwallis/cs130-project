@@ -60,7 +60,7 @@ const Page = () => {
 
 
   useEffect(() => {
-    // Do something with the selectedTab whenever it changes
+    //when selected tab changes load in the data from firebase
     console.log(`Selected Tab in Page: ${selectedTab}`);
   }, [selectedTab]);
   const selectTab = async (tab) => {
@@ -84,6 +84,7 @@ const Page = () => {
     }
     setSelectedTab(tab);
   }
+  
   return (
     <div className='flex flex-col'>
       <NavigationTab tabs={tabs} setTabs={setTabs} setSelectedTab={selectTab} />

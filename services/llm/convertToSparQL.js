@@ -1,7 +1,7 @@
 'use server';
 
 import OpenAI from 'openai';
-
+//converts a human query into SparQL query using OpenAI
 const convertToSparQL = async (query) => {
 	const instructions = `
 Convert the following question into a SPARQL query that uses the OML vocabulary terms properly.

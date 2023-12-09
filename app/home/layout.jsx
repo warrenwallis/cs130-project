@@ -1,3 +1,4 @@
+//composite pattern for home layout
 const HomeLayout = async ({ children }) => {
 	return (
 		<>

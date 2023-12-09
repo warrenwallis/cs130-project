@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+//the landing page. Has a login and register
 const Page = () => {
 	return (
 		<div className='flex flex-col h-screen justify-center bg-slate-100'>
