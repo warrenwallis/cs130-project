@@ -4,7 +4,13 @@ import { removeCodeBlocks } from '@/services/lib/helpers';
 import { convertToSparQL, interpretQueryResult } from '../llm';
 import { queryRDFDatabase } from '../oml';
 
-//handle human query entire pipeline
+
+/**
+ * Handle human query. This is the entire pipeline. 
+ * This includes convert to sparql, query the RDF database, and interpreting the results with openAI
+ * @param {string} query 
+ * @returns {status} Status code
+ */
 const handleQuery = async (query) => {
 	try {
 		const sparQLQueryMD = await convertToSparQL(query);

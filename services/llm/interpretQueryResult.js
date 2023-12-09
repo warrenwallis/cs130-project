@@ -1,7 +1,12 @@
 'use server';
 
 import OpenAI from 'openai';
-//intrepret the result of SparQL querying given original human query and result from database
+/**
+ * intrepret the result of SparQL querying given original human query and result from database
+ * @param {string} query original human query
+ * @param {string} result result from formal database
+ * @returns {string} intrepreted results
+ */
 const interpretQueryResult = async (query, result) => {
 	const instructions = `
 Answer the query succinctly using this result we polled from a formal database. 

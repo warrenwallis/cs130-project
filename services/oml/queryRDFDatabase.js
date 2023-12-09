@@ -1,6 +1,11 @@
 'use server';
 
-//get the response from RDF database(currently wikidata) and return json object
+
+/**
+ * get the response from RDF database(currently wikidata) and return json object
+ * @param {string} SPARQLQuery 
+ * @returns {string} json string representing data
+ */
 const queryRDFDatabase = async (SPARQLQuery) => {
 	try {
 		const url = `https://query.wikidata.org/sparql?query=${SPARQLQuery}&format=json`;
